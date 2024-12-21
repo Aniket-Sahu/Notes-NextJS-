@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Geist, Geist_Mono } from "next/font/google";
-import './globals.css'
-import { Toaster } from "@/components/ui/toaster";
-import AuthProvider from "@/context/AuthProvider";
 import Navbar from "@/components/navbar";
+
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -35,15 +33,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.variable}>
-      <AuthProvider>
         <body
           className={`${inter.className} ${geistSans.variable} ${geistMono.variable} antialiased`}
         >
           <Navbar />
-          {children}
-          <Toaster />
+          {children}     
         </body>
-      </AuthProvider>
     </html>
   );
 }
